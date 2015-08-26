@@ -29,7 +29,6 @@ public class UserRegistrationController {
     @Produces(MediaType.APPLICATION_JSON)
     public Map<String,Object> getAllUsers(){
         List<User> userList = new ArrayList<User>();
-//        userRegistrationService = new UserRegistrationService();
         try{
             userList = userRegistrationService.getAllUsers();
             return getResultMap("",Constant.OK,userList);
@@ -38,9 +37,6 @@ public class UserRegistrationController {
         } catch (SQLException e) {
             log.error("SQLException : " + e);
         }
-//        Map<String,Object> map = new HashMap<String, Object>();
-//        map.put("list",userList);
-//        return map;
         return getResultMap(UIMessageConstant.GET_ALL_USER_MSG,Constant.FAIL,"");
     }
 
@@ -64,7 +60,7 @@ public class UserRegistrationController {
     @Path("/add-user")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Map<String,Object> insertUser(@PathParam("user") User user) {
+    public Map<String,Object> insertUser(User user) {
         try {
             userRegistrationService.insertUser(user);
             return getResultMap("",Constant.OK,"");
@@ -77,9 +73,9 @@ public class UserRegistrationController {
                 ,Constant.FAIL,"");
     }
 
-    @PUT
+    @POST
     @Path("/update-user")
-    public Map<String,Object> updateUser(@PathParam("user") User user){
+    public Map<String,Object> updateUser(User user){
         try {
             userRegistrationService.updateUser(user);
             return getResultMap("", Constant.OK,"");
@@ -93,8 +89,8 @@ public class UserRegistrationController {
     }
 
     @DELETE
-    @Path("/delete-user/{userId}")
-    public Map<String,Object> deleteUser(@PathParam("userId") int userId){
+    @Path("/delete-user")
+    public Map<String,Object> deleteUser(int userId){
         try {
             userRegistrationService.deleteUser(userId);
             return getResultMap("",Constant.OK,"");
@@ -113,6 +109,7 @@ public class UserRegistrationController {
         resultMap.put(Constant.STATUS,status);
         return resultMap;
     }
+
     /**
      * Test method to check service is working or not
      */
