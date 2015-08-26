@@ -75,6 +75,8 @@ public class UserRegistrationController {
 
     @POST
     @Path("/update-user")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Map<String,Object> updateUser(User user){
         try {
             userRegistrationService.updateUser(user);
@@ -88,8 +90,10 @@ public class UserRegistrationController {
                 ,Constant.FAIL,"");
     }
 
-    @DELETE
+    @POST
     @Path("/delete-user")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     public Map<String,Object> deleteUser(int userId){
         try {
             userRegistrationService.deleteUser(userId);
