@@ -25,6 +25,8 @@ public class UserDaoImpl implements UserDao {
     private static final String ZIP = "zip";
     private static final String EMAIL = "email";
 
+    public UserDaoImpl(){}
+
     @Override
     public List<User> getAllUsers() throws SQLException, ClassNotFoundException {
         List<User> userList = new ArrayList<User>();
@@ -64,6 +66,31 @@ public class UserDaoImpl implements UserDao {
                 connection.close();
             }
         }
+
+//        List<User> userList = new ArrayList<User>();
+//        User user = new User();
+//        user.setUserId(1);
+//        user.setFirstName("maninder");
+//        user.setMiddleName("");
+//        user.setLastName("singh");
+//        user.setAddress("delhi");
+//        user.setState("delhi");
+//        user.setCountry("india");
+//        user.setZip("500034");
+//        user.setEmail("tst@test.com");
+//        userList.add(user);
+//        user = new User();
+//        user.setUserId(1);
+//        user.setFirstName("ashok");
+//        user.setMiddleName("");
+//        user.setLastName("c");
+//        user.setAddress("hyderabad");
+//        user.setState("delhi");
+//        user.setCountry("india");
+//        user.setZip("500034");
+//        user.setEmail("tst@test.com");
+//        userList.add(user);
+//        return userList;
     }
 
     @Override
@@ -176,7 +203,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void deleteUser(User user) throws SQLException, ClassNotFoundException {
+    public void deleteUser(int userId) throws SQLException, ClassNotFoundException {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -184,7 +211,7 @@ public class UserDaoImpl implements UserDao {
         try {
             connection = JdbcWrapperUtil.getConnection();
             statement = connection.prepareStatement(Constant.DELETE_USER_QUERY);
-            statement.setInt(1,user.getUserId());
+            statement.setInt(1,userId);
             log.info("DELETE_USER_QUERY : " + statement.toString());
             statement.execute();
         }finally {

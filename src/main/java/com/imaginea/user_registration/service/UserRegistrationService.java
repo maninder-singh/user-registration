@@ -5,6 +5,7 @@ import com.imaginea.user_registration.dao.UserDaoImpl;
 import com.imaginea.user_registration.pojo.User;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,10 +43,26 @@ public class UserRegistrationService {
         userDao.updateUser(user);
     }
 
-    public void deleteUser(User user) throws SQLException, ClassNotFoundException {
+    public void deleteUser(int userId) throws SQLException, ClassNotFoundException {
         if(userDao == null){
             userDao = new UserDaoImpl();
         }
-        userDao.deleteUser(user);
+        userDao.deleteUser(userId);
+    }
+
+    public List<User> getUserList(){
+        List<User> userList = new ArrayList<User>();
+        User user = new User();
+        user.setUserId(1);
+        user.setFirstName("maninder");
+        user.setMiddleName("");
+        user.setLastName("singh");
+        user.setAddress("delhi");
+        user.setState("delhi");
+        user.setCountry("india");
+        user.setZip("500034");
+        user.setEmail("tst@test.com");
+        userList.add(user);
+        return userList;
     }
 }
