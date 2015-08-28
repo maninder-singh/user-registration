@@ -1,8 +1,85 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>User Registration</title>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>Ember Starter Kit</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<script type="text/x-handlebars">
+    <h2>User Registration App</h2>
+    <nav>
+        {{link-to 'Get All User' 'get-all-users'}}
+        {{link-to 'Get User' 'get-user' userId}}
+        {{link-to 'Add User' 'add-user'}}
+        {{link-to 'Update User' 'update-user' user}}
+    </nav>
 
-    </body>
+    {{outlet}}
+</script>
+
+<script type="text/x-handlebars" id="index">
+    <ul>
+        {{#each item in model}}
+        <li>{{item}}</li>
+        {{/each}}
+    </ul>
+</script>
+
+<script type="text/x-handlebars" id="get-all-users">
+    <h1>Get All User</h1>
+    <table>
+        {{#each user in model}}
+            <tr>
+                <th>First Name : {{user.firstName}}</th>
+                <th>Middle Name : {{user.middleName}}</th>
+                <th>Last Name : {{user.lastName}}</th>
+                <th>{{link-to 'Get User Details' 'get-user' user.userId}}</th>
+            </tr>
+        {{/each}}
+    </table>
+</script>
+
+<script type="text/x-handlebars" id="get-user">
+    <h1>Get User User</h1>
+        <p>First Name : {{model.firstName}}</p>
+        <p>Middle Name : {{model.middleName}}</p>
+        <p>Last Name : {{model.lastName}}</p>
+</script>
+
+<script type="text/x-handlebars" id="add-user">
+    <h1>Add User</h1>
+    <label>First Name</label>
+    {{input value=firstName}} <br/>
+    <label>Middle Name</label>
+    {{input value=middleName}}<br/>
+    <label>Last Name</label>
+    {{input value=lastName}}<br/>
+    <br/>
+        <button {{action "addNewUser"}} {{bind-attr disabled=isFormValid}}>Add User</button>
+    <!--<button {{action "addNewUser"}}>Add User</button>-->
+</script>
+
+<script type="text/x-handlebars" id="update-user">
+    <h1>Update User</h1>
+</script>
+
+
+
+<script src="app/libs/jquery-1.10.2.js"></script>
+<script src="app/libs/ember-template-compiler-1.12.0.js"></script>
+<script src="app/libs/ember-1.12.0.debug.js"></script>
+<!--<script src="libs/ember-data.js" ></script>-->
+<script src="app/scripts/app.js"></script>
+<script src="app/scripts/models/user-model.js" ></script>
+<script src="app/scripts/router.js"></script>
+<script src="app/scripts/routes/index_route.js"></script>
+<script src="app/scripts/routes/get-user-route.js"></script>
+<script src="app/scripts/routes/add-user-route.js"></script>
+<script src="app/scripts/routes/update-user-route.js"></script>
+<script src="app/scripts/controllers/add-new-controller.js"></script>
+<!-- to activate the tests runner, add the "?tests" query string parameter -->
+<script src="tests/runner.js"></script>
+</body>
 </html>
