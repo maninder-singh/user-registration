@@ -90,20 +90,18 @@ public class UserRegistrationController {
                 ,Constant.FAIL,"");
     }
 
-    @POST
-    @Path("/delete-user")
+    @DELETE
+    @Path("/delete-user/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Map<String,Object> deleteUser(int userId){
+    public void deleteUser(@PathParam("userId") int userId){
         try {
             userRegistrationService.deleteUser(userId);
-            return getResultMap("",Constant.OK,"");
         } catch (SQLException e) {
             log.error("SQLException : " + e);
         } catch (ClassNotFoundException e) {
             log.error("ClassNotFoundException : " + e);
         }
-        return getResultMap(UIMessageConstant.DELETE_USER_MSG,Constant.FAIL,"");
     }
 
     public Map<String,Object> getResultMap(String message,String status,Object data){
