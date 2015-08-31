@@ -17,3 +17,10 @@ input {
     min-width: 250px;
     max-height: 20px;
 }
+
+.errors {
+    margin: 0em;
+    padding: 1em;
+    color: #A22;
+    background: #FDD;
+}
