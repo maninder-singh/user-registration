@@ -5,22 +5,13 @@
 UserRegistrationApp.AddUserController = Ember.Controller.extend({
     isFormValid : true,
     validAddUserForm : function(){
-        var firstName = this.get('firstName');
-        var middleName = this.get('middleName');
-        var lastName = this.get('lastName');
-
-        if(firstName === undefined || middleName === undefined || lastName === undefined){
-            this.set('isFormValid',true);
-        }else{
-            if(firstName != "" && middleName != "" && lastName != ""){
-                this.set('isFormValid',false);
-            }else{
-                this.set('isFormValid',true);
-            }
-        }
-    }.observes('firstName','middleName','lastName'),
+        this.set("errors","");
+    }.observes('firstName','middleName','lastName','email','city','address','state','zip','country'),
     actions : {
         addNewUser : function(){
+
+            if(!UserRegistrationApp.validateForm(this))
+                return;
             var self = this;
             var user = {};
             user["firstName"] = this.get('firstName');
@@ -32,6 +23,7 @@ UserRegistrationApp.AddUserController = Ember.Controller.extend({
             user["state"] = this.get("state");
             user["zip"] = this.get("zip");
             user["country"] = this.get("country");
+
             var url = UserRegistrationApp.BaseUrl + "registration/add-user";
             $.ajax({
                 type: "POST",
