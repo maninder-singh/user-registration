@@ -2,3 +2,18 @@
 .ember-application {
     margin: 20px;
 }
+
+.title {
+    margin-left: 0em;
+    padding: .5em;
+    color: #000000;
+    background: #C0C0C0;
+    text-align: center;
+    width: 100%;
+}
+
+input {
+    background: #EEE;
+    min-width: 250px;
+    max-height: 20px;
+}
