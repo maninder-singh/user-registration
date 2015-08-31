@@ -5,15 +5,20 @@
     <title>Ember Starter Kit</title>
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
 <body>
 <script type="text/x-handlebars">
-    <h2>User Registration App</h2>
-    <nav>
-        {{link-to 'Get All User' 'get-all-users'}}
-        {{link-to 'Get User' 'get-user' userId}}
-        {{link-to 'Add User' 'add-user'}}
-        {{link-to 'Update User' 'update-user' user}}
+    <h1 class ="title">User Registration</h1>
+    <nav class="navbar navbar-default">
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+                <li style="font-weight: bold">{{link-to 'Registered User' 'get-all-users'}}</li>
+                <li style="font-weight: bold">{{link-to 'Add User' 'add-user'}}</li>
+            </ul>
+        </div>
     </nav>
 
     {{outlet}}
@@ -28,37 +33,133 @@
 </script>
 
 <script type="text/x-handlebars" id="get-all-users">
-    <h1>Get All User</h1>
-    <table>
-        {{#each user in model}}
-            <tr>
-                <th>First Name : {{user.firstName}}</th>
-                <th>Middle Name : {{user.middleName}}</th>
-                <th>Last Name : {{user.lastName}}</th>
-                <th>{{link-to 'Get User Details' 'get-user' user.userId}}</th>
-            </tr>
-        {{/each}}
-    </table>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">User List</h3>
+        </div>
+        <div class="panel-body table-responsive">
+            <table class="table ">
+                <tr>
+                    <th> First Name </th> <th> Middle Name </th> <th> Last Name </th>
+                    <th> Action </th>
+                </tr>
+                {{#each user in model}}
+                    <tr>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.middleName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{link-to 'Detail' 'get-user' user.userId}}</td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
 </script>
 
 <script type="text/x-handlebars" id="get-user">
-    <h1>Get User User</h1>
-        <p>First Name : {{model.firstName}}</p>
-        <p>Middle Name : {{model.middleName}}</p>
-        <p>Last Name : {{model.lastName}}</p>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">User Details</h3>
+        </div>
+        <div class="panel-body">
+            <table>
+                <tr>
+                    <td><label> First Name : </label></td>
+                    <td>{{model.firstName}}</td>
+                </tr><tr><td/><td/></tr>
+
+                <tr>
+                    <td><label> Middle Name : </label></td>
+                    <td>{{model.middleName}}</td>
+                </tr><tr><td/><td/></tr>
+
+                <tr>
+                    <td><label> Last Name : </label></td>
+                    <td>{{model.lastName}}</td>
+                </tr><tr><td/><td/></tr>
+
+                <tr>
+                    <td><label> Email : </label></td>
+                    <td>{{model.email}}</td>
+                </tr><tr><td/><td/></tr>
+
+                <tr>
+                    <td><label> Address : </label></td>
+                    <td>{{model.address}}</td>
+                </tr><tr><td/><td/></tr>
+
+                <tr>
+                    <td><label> City : </label></td>
+                    <td>{{model.city}}</td>
+                </tr><tr><td/><td/></tr>
+
+                <tr>
+                    <td><label> State : </label></td>
+                    <td>{{model.state}}</td>
+                </tr><tr><td/><td/></tr>
+
+                <tr>
+                    <td><label> Zip Code : </label></td>
+                    <td>{{model.zip}}</td>
+                </tr><tr><td/><td/></tr>
+
+                <tr>
+                    <td><label> Country : </label></td>
+                    <td>{{model.country}}</td>
+                </tr><tr><td/><td/></tr>
+            </table> 
+        </div>
+    </div>
 </script>
 
 <script type="text/x-handlebars" id="add-user">
-    <h1>Add User</h1>
-    <label>First Name</label>
-    {{input value=firstName}} <br/>
-    <label>Middle Name</label>
-    {{input value=middleName}}<br/>
-    <label>Last Name</label>
-    {{input value=lastName}}<br/>
-    <br/>
-        <button {{action "addNewUser"}} {{bind-attr disabled=isFormValid}}>Add User</button>
-    <!--<button {{action "addNewUser"}}>Add User</button>-->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Add User</h3>
+        </div>
+        <div class="panel-body">
+            <table>
+                <tr>
+                    <td> <label>First Name * </label> </td>
+                    <td> {{input value=firstName}} </td>
+                </tr><tr><td/><td/></tr>
+                <tr>
+                    <td> <label>Middle Name</label> </td>
+                    <td> {{input value=middleName}} </td>
+                </tr><tr><td/><td/></tr>
+                <tr>
+                    <td> <label>Last Name * </label> </td>
+                    <td> {{input value=lastName}} </td>
+                </tr>
+                <tr>
+                    <td> <label>Email * </label> </td>
+                    <td> {{input value=email}} </td>
+                </tr>
+                <tr>
+                    <td> <label>Address</label> </td>
+                    <td> {{input value=address}} </td>
+                </tr>
+                <tr>
+                    <td> <label>City</label> </td>
+                    <td> {{input value=city}} </td>
+                </tr>
+                <tr>
+                    <td> <label>State</label> </td>
+                    <td> {{input value=state}} </td>
+                </tr>
+                <tr>
+                    <td> <label>Zip Code</label> </td>
+                    <td> {{input value=zip}} </td>
+                </tr>
+                <tr>
+                    <td> <label>Country</label> </td>
+                    <td> {{input value=country}} </td>
+                </tr>
+            </table>
+            <br/>
+            <button class="btn btn-success" {{action "addNewUser"}} {{bind-attr disabled=isFormValid}}>Add User</button>
+        </div>
+    </div>
 </script>
 
 <script type="text/x-handlebars" id="update-user">
