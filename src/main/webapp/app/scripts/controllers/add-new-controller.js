@@ -25,6 +25,12 @@ UserRegistrationApp.AddUserController = Ember.Controller.extend({
             user["firstName"] = this.get('firstName');
             user["middleName"] = this.get('middleName');
             user["lastName"] = this.get('lastName');
+            user["email"] = this.get("email");
+            user["address"] = this.get("address");
+            user["city"] = this.get("city");
+            user["state"] = this.get("state");
+            user["zip"] = this.get("zip");
+            user["country"] = this.get("country");
             var url = UserRegistrationApp.BaseUrl + "registration/add-user";
             $.ajax({
                 type: "POST",
@@ -32,7 +38,7 @@ UserRegistrationApp.AddUserController = Ember.Controller.extend({
                 data: JSON.stringify(user),
                 contentType:"application/json; charset=utf-8",
                 success: function(data){
-                    console,log("success");
+                    console.log("success");
                 },
                 error: function (jqXHR, textStatus, errorThrown){
                     console.log("error");
@@ -43,6 +49,12 @@ UserRegistrationApp.AddUserController = Ember.Controller.extend({
             this.set('firstName',"");
             this.set('middleName',"");
             this.set('lastName',"");
+            this.set('email',"");
+            this.set('address',"");
+            this.set('city',"");
+            this.set('state',"");
+            this.set('zip',"");
+            this.set('country',"");
         }
     }
 });
