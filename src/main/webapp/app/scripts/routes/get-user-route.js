@@ -4,7 +4,25 @@
 
 UserRegistrationApp.GetUserRoute = Ember.Route.extend({
     model : function(params){
-        return UserRegistrationApp.DummyUserData.findBy('userId',parseInt(params.userId));
+        // return UserRegistrationApp.DummyUserData.findBy('userId',parseInt(params.userId));
+       var url = UserRegistrationApp.BaseUrl + "registration/get-user/" + params.userId;
+       return Ember.$.getJSON(url).then(function (response) {
+           if(response.hasOwnProperty("status") && response["status"] === "ok"){
+               var user = UserRegistrationApp.User.create({
+                   userId : response.data["userId"],
+                   firstName : response.data["firstName"],
+                   middleName : response.data["middleName"],
+                   lastName : response.data["lastName"],
+                   city : response.data["city"],
+                   address : response.data["address"],
+                   state : response.data["state"],
+                   country : response.data["country"],
+                   zip : response.data["zip"],
+                   email : response.data["email"]
+               });
+               return user;
+           }
+       });
     }
 });
 
