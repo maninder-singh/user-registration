@@ -114,6 +114,11 @@
 </script>
 
 <script type="text/x-handlebars" id="add-user">
+    {{#if errors}}
+        <div class="errors">
+                {{errors}}
+        </div>
+    {{/if}}
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">Add User</h3>
@@ -158,7 +163,7 @@
                 </tr>
             </table>
             <br/>
-            <button class="btn btn-success" {{action "addNewUser"}} {{bind-attr disabled=isFormValid}}>Add User</button>
+            <button class="btn btn-success" {{action "addNewUser"}}>Add User</button>
         </div>
     </div>
 </script>
@@ -176,6 +181,7 @@
 <!--<script src="libs/ember-data.js" ></script>-->
 <script src="app/scripts/app.js"></script>
 <script src="app/scripts/models/user-model.js" ></script>
+<script src="app/scripts/util/validation-util.js"></script>
 <script src="app/scripts/router.js"></script>
 <script src="app/scripts/routes/index_route.js"></script>
 <script src="app/scripts/routes/get-user-route.js"></script>
