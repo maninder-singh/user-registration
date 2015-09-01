@@ -1,4 +1,4 @@
-# user-registration
+# User Registration App using Ember.js
 
 Step to run application 
 
