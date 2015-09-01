@@ -4,7 +4,6 @@
 
 UserRegistrationApp.GetUserRoute = Ember.Route.extend({
     model : function(params){
-        // return UserRegistrationApp.DummyUserData.findBy('userId',parseInt(params.userId));
        var url = UserRegistrationApp.BaseUrl + "registration/get-user/" + params.userId;
        return Ember.$.getJSON(url).then(function (response) {
            if(response.hasOwnProperty("status") && response["status"] === "ok"){
@@ -28,12 +27,6 @@ UserRegistrationApp.GetUserRoute = Ember.Route.extend({
 
 UserRegistrationApp.GetAllUsersRoute = Ember.Route.extend({
    model : function(){
-       //var userList = [];
-       //for(var index = 0 ; index < UserRegistrationApp.DummyUserData.length ; index++){
-       //     userList.push(UserRegistrationApp.DummyUserData[index]);
-       //}
-       //return userList;
-
        var url = UserRegistrationApp.BaseUrl + "registration/get-all-users";
        return Ember.$.getJSON(url).then(function (response) {
            var userList = [];

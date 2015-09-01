@@ -7,4 +7,3 @@ UserRegistrationApp.IndexRoute = Ember.Route.extend({
         this.transitionTo('get-all-users');
     }
 });
-
