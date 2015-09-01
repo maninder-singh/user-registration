@@ -12,7 +12,7 @@ public interface UserDao {
 
     public List<User> getAllUsers() throws SQLException, ClassNotFoundException;
     public User getUser(int userId) throws SQLException, ClassNotFoundException;
-    public void insertUser(User user) throws SQLException, ClassNotFoundException;
-    public void updateUser(User user) throws SQLException, ClassNotFoundException;
-    public void deleteUser(int userId) throws SQLException, ClassNotFoundException;
+    public boolean insertUser(User user) throws SQLException, ClassNotFoundException;
+    public boolean updateUser(User user) throws SQLException, ClassNotFoundException;
+    public boolean deleteUser(int userId) throws SQLException, ClassNotFoundException;
 }

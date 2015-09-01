@@ -13,41 +13,27 @@ import java.util.List;
  */
 public class UserRegistrationService {
 
-    private UserDao userDao = new UserDaoImpl();
+    private static UserDao userDao = new UserDaoImpl();
 
     public List<User> getAllUsers() throws SQLException, ClassNotFoundException {
-        if(userDao == null){
-            userDao = new UserDaoImpl();
-        }
         return userDao.getAllUsers();
     }
 
     public User getUser(int userId) throws SQLException, ClassNotFoundException {
-        if(userDao == null){
-            userDao = new UserDaoImpl();
-        }
         return userDao.getUser(userId);
     }
 
-    public void insertUser(User user) throws SQLException, ClassNotFoundException {
-        if(userDao == null){
-            userDao = new UserDaoImpl();
-        }
-        userDao.insertUser(user);
+    public boolean insertUser(User user) throws SQLException, ClassNotFoundException {
+        return userDao.insertUser(user);
+        
     }
 
-    public void updateUser(User user) throws SQLException, ClassNotFoundException {
-        if(userDao == null){
-            userDao = new UserDaoImpl();
-        }
-        userDao.updateUser(user);
+    public boolean updateUser(User user) throws SQLException, ClassNotFoundException {
+       return userDao.updateUser(user);
     }
 
-    public void deleteUser(int userId) throws SQLException, ClassNotFoundException {
-        if(userDao == null){
-            userDao = new UserDaoImpl();
-        }
-        userDao.deleteUser(userId);
+    public boolean deleteUser(int userId) throws SQLException, ClassNotFoundException {
+      return  userDao.deleteUser(userId);
     }
 
     public List<User> getUserList(){

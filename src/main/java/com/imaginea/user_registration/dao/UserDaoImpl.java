@@ -134,11 +134,12 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void updateUser(User user) throws SQLException, ClassNotFoundException {
+    public boolean updateUser(User user) throws SQLException, ClassNotFoundException {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         int updatedRowCount = 0;
+        
         try{
             connection = JdbcWrapperUtil.getConnection();
             statement = connection.prepareStatement(Constant.UPDATE_USER_QUERY);
@@ -155,6 +156,7 @@ public class UserDaoImpl implements UserDao {
             log.info("UPDATE_USER_QUERY : " + statement.toString());
             updatedRowCount = statement.executeUpdate();
             log.info("Number of rows updated : " + updatedRowCount);
+            return true;
         }finally {
             if(resultSet != null){
                 resultSet.close();
@@ -169,7 +171,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void insertUser(User user) throws SQLException, ClassNotFoundException {
+    public boolean insertUser(User user) throws SQLException, ClassNotFoundException {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -189,6 +191,7 @@ public class UserDaoImpl implements UserDao {
             log.info("INSERT_USER_QUERY : " + statement.toString());
             insertRowCount = statement.executeUpdate();
             log.info("New row inserted : " + insertRowCount);
+            return true;
         }finally {
             if(resultSet != null){
                 resultSet.close();
@@ -203,7 +206,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void deleteUser(int userId) throws SQLException, ClassNotFoundException {
+    public boolean deleteUser(int userId) throws SQLException, ClassNotFoundException {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -214,6 +217,7 @@ public class UserDaoImpl implements UserDao {
             statement.setInt(1,userId);
             log.info("DELETE_USER_QUERY : " + statement.toString());
             statement.execute();
+            return true;
         }finally {
             if(resultSet != null){
                 resultSet.close();
