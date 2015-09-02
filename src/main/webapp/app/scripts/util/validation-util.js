@@ -30,6 +30,5 @@ UserRegistrationApp.validateForm = function(obj){
         obj.set("errors", "Please enter valid zip");
         return false;
     }
-
     return true;
 };
