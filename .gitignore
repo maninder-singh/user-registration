@@ -1,5 +1,4 @@
 /target/
 .idea/
 .settings/.jsdtscope
-export-user_registration.sql
 user-registration.iml
