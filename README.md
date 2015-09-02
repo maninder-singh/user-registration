@@ -11,4 +11,4 @@ Step to run application
 5. mvn clean package
 5. copy target/user-registration folder to {application-server}/webapps/
 6. copy target/user-registration.war file to {application-server}/webapps/
-7. open browser and go to http://{domain}/user-registration/index.html.
+7. open browser and go to url - http://{domain}/user-registration/index.html.
