@@ -1,8 +1,36 @@
 
+/**
+ * This file is having common utility methods for validating user registration form.
+ * @author bhuvneshwars
+ * @class ValidateForm
+ * @module UserRegistration
+ * @submodule AddUser
+ */
+
+/**
+ * This function is to validate user registration form based on 
+ * first name, last name, email and zip code.
+ * @method validateForm
+ * @param obj - User Registration Form Object
+ * @return boolean - Form valid or not
+ */
 UserRegistrationApp.validateForm = function(obj){
 
+	/**
+	 * Regular expression to validate email.
+	 * @property emailPattern
+	 * @type String
+	 * @default /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+	 */
     var emailPattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    /**
+	 * Regular expression to validate Zip code.
+	 * @property zipPattern
+	 * @type String
+	 * @default /(^\d{6}$)|(^\d{3}-\d{3}$)/
+	 */
     var zipPattern = /(^\d{6}$)|(^\d{3}-\d{3}$)/;
+    
     var firstName = obj.get('firstName');
     var lastName = obj.get('lastName');
     var email = obj.get("email");
@@ -30,5 +58,6 @@ UserRegistrationApp.validateForm = function(obj){
         obj.set("errors", "Please enter valid zip");
         return false;
     }
+
     return true;
 };

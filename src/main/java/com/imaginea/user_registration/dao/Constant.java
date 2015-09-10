@@ -1,7 +1,12 @@
 package com.imaginea.user_registration.dao;
 
 /**
- * Created by maninders on 25/8/15.
+ * <h1> DBQueryConstants.class</h1>
+ * This class represents set of DB queries 
+ * which are used to interact with database to perform 
+ * CRUD operations.
+ * 
+ * @author maninders
  */
 public class Constant {
 

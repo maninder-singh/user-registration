@@ -1,7 +1,10 @@
 package com.imaginea.user_registration.constant;
 
 /**
- * Created by maninders on 25/8/15.
+ * <h1> Constants.class </h1>
+ * This class represents set of constant values, which are used in application.
+ * 
+ * @author maninders
  */
 public class Constant {
 

@@ -1,8 +1,20 @@
 /**
- * Created by maninders on 27/8/15.
+ * This GetUserRoute class have functionality to get user details for user id 
+ * by asynchronous call to server
+ * 
+ * @author maninders
+ * @class GetUserRoute
+ * @module UserRegistration
+ * @submodule GetUser
  */
-
 UserRegistrationApp.GetUserRoute = Ember.Route.extend({
+	/**
+	 * This method is to get user details from server by 
+	 * asynchronous ajax call for given user id.
+	 * @method getUser
+	 * @param  params - Json Object
+	 * @return User Object
+	 */
     model : function(params){
        var url = UserRegistrationApp.BaseUrl + "registration/get-user/" + params.userId;
        return Ember.$.getJSON(url).then(function (response) {
@@ -25,7 +37,21 @@ UserRegistrationApp.GetUserRoute = Ember.Route.extend({
     }
 });
 
+/**
+ * This GetAllUsersRoute class have functionality to get all user details  
+ * by asynchronous call to server 
+ * @author maninders
+ * @class GetUserRoute
+ * @module UserRegistration
+ * @submodule GetUser
+ */
 UserRegistrationApp.GetAllUsersRoute = Ember.Route.extend({
+	/**
+	 * This method is to get all user details from server by 
+	 * asynchronous ajax call .
+	 * @method getAllUsers
+	 * @return User List
+	 */
    model : function(){
        var url = UserRegistrationApp.BaseUrl + "registration/get-all-users";
        return Ember.$.getJSON(url).then(function (response) {

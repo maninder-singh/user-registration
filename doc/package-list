@@ -1,0 +1,8 @@
+com.imaginea.user_registration.constant
+com.imaginea.user_registration.controller
+com.imaginea.user_registration.dao
+com.imaginea.user_registration.filter
+com.imaginea.user_registration.pojo
+com.imaginea.user_registration.service
+com.imaginea.user_registration.test
+com.imaginea.user_registration.util

@@ -1,0 +1,467 @@
+{
+    "project": {},
+    "files": {
+        "controllers/add-new-controller.js": {
+            "name": "controllers/add-new-controller.js",
+            "modules": {},
+            "classes": {
+                "AddUserController": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "controllers/index-controller.js": {
+            "name": "controllers/index-controller.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/user-model.js": {
+            "name": "models/user-model.js",
+            "modules": {
+                "UserRegistration": 1
+            },
+            "classes": {
+                "User": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/add-user-route.js": {
+            "name": "routes/add-user-route.js",
+            "modules": {},
+            "classes": {
+                "AddUserRoute": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/get-user-route.js": {
+            "name": "routes/get-user-route.js",
+            "modules": {},
+            "classes": {
+                "GetUserRoute": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/index_route.js": {
+            "name": "routes/index_route.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/update-user-route.js": {
+            "name": "routes/update-user-route.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "util/validation-util.js": {
+            "name": "util/validation-util.js",
+            "modules": {},
+            "classes": {
+                "ValidateForm": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "UserRegistration": {
+            "name": "UserRegistration",
+            "submodules": {
+                "AddUser": 1,
+                "GetUser": 1
+            },
+            "elements": {},
+            "classes": {
+                "AddUserController": 1,
+                "User": 1,
+                "AddUserRoute": 1,
+                "GetUserRoute": 1,
+                "ValidateForm": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "util/validation-util.js",
+            "line": 2,
+            "description": "This module is having user related attributes."
+        },
+        "AddUser": {
+            "name": "AddUser",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "AddUserController": 1,
+                "AddUserRoute": 1,
+                "ValidateForm": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "UserRegistration",
+            "namespace": "",
+            "description": "This controller class have functionality to validate user registration form \nand register new user",
+            "file": "util/validation-util.js",
+            "line": 2
+        },
+        "GetUser": {
+            "name": "GetUser",
+            "submodules": {},
+            "elements": {},
+            "classes": {
+                "GetUserRoute": 1
+            },
+            "fors": {},
+            "is_submodule": 1,
+            "namespaces": {},
+            "module": "UserRegistration",
+            "namespace": "",
+            "description": "This GetAllUsersRoute class have functionality to get all user details  \nby asynchronous call to server",
+            "file": "routes/get-user-route.js",
+            "line": 40
+        }
+    },
+    "classes": {
+        "AddUserController": {
+            "name": "AddUserController",
+            "shortname": "AddUserController",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UserRegistration",
+            "file": "controllers/add-new-controller.js",
+            "line": 1,
+            "description": "This controller class have functionality to validate user registration form \nand register new user",
+            "author": "bhuvnshwars",
+            "submodule": "AddUser"
+        },
+        "User": {
+            "name": "User",
+            "shortname": "User",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UserRegistration",
+            "namespace": "",
+            "file": "models/user-model.js",
+            "line": 1,
+            "description": "This module is having user related attributes.",
+            "author": "maninders"
+        },
+        "AddUserRoute": {
+            "name": "AddUserRoute",
+            "shortname": "AddUserRoute",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UserRegistration",
+            "namespace": "",
+            "file": "routes/add-user-route.js",
+            "line": 1,
+            "description": "This AddUserRoute class to route and load add-user component",
+            "author": "maninders",
+            "submodule": "AddUser"
+        },
+        "GetUserRoute": {
+            "name": "GetUserRoute",
+            "shortname": "GetUserRoute",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UserRegistration",
+            "namespace": "",
+            "file": "routes/get-user-route.js",
+            "line": 40,
+            "description": "This GetAllUsersRoute class have functionality to get all user details  \nby asynchronous call to server",
+            "author": "maninders",
+            "submodule": "GetUser"
+        },
+        "ValidateForm": {
+            "name": "ValidateForm",
+            "shortname": "ValidateForm",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "UserRegistration",
+            "namespace": "",
+            "file": "util/validation-util.js",
+            "line": 2,
+            "description": "This file is having common utility methods for validating user registration form.",
+            "author": "bhuvneshwars",
+            "submodule": "AddUser"
+        }
+    },
+    "elements": {},
+    "classitems": [
+        {
+            "file": "controllers/add-new-controller.js",
+            "line": 13,
+            "description": "This method to observe changes in attributes of User and after change, hide alert message.",
+            "itemtype": "method",
+            "name": "validAddUserForm",
+            "class": "AddUserController",
+            "module": "UserRegistration",
+            "submodule": "AddUser"
+        },
+        {
+            "file": "controllers/add-new-controller.js",
+            "line": 21,
+            "description": "This method to register new user after validating user registration form.",
+            "itemtype": "method",
+            "name": "addNewUser",
+            "class": "AddUserController",
+            "module": "UserRegistration",
+            "submodule": "AddUser"
+        },
+        {
+            "file": "controllers/index-controller.js",
+            "line": 1,
+            "author": "maninders",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 9,
+            "description": "Primary (Unique) key to identify user.",
+            "itemtype": "property",
+            "name": "userId",
+            "type": "Integer",
+            "default": "0",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 16,
+            "description": "First Name of User.",
+            "itemtype": "property",
+            "name": "firstName",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 23,
+            "description": "Middle Name of User.",
+            "itemtype": "property",
+            "name": "middleName",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 30,
+            "description": "Last Name of User.",
+            "itemtype": "property",
+            "name": "lastName",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 37,
+            "description": "Address of User.",
+            "itemtype": "property",
+            "name": "address",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 44,
+            "description": "City of User.",
+            "itemtype": "property",
+            "name": "city",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 51,
+            "description": "State of user.",
+            "itemtype": "property",
+            "name": "state",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 58,
+            "description": "Zip of User.",
+            "itemtype": "property",
+            "name": "zip",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 65,
+            "description": "Country of User.",
+            "itemtype": "property",
+            "name": "country",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "models/user-model.js",
+            "line": 72,
+            "description": "Email ID of User.",
+            "itemtype": "property",
+            "name": "email",
+            "type": "String",
+            "default": "",
+            "class": "User",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "routes/add-user-route.js",
+            "line": 10,
+            "description": "This method is created for testing purpose which return default user object.",
+            "itemtype": "method",
+            "name": "model",
+            "type": "Setting default user object",
+            "return": {
+                "description": "User Object"
+            },
+            "class": "AddUserRoute",
+            "module": "UserRegistration",
+            "submodule": "AddUser"
+        },
+        {
+            "file": "routes/get-user-route.js",
+            "line": 11,
+            "description": "This method is to get user details from server by \nasynchronous ajax call for given user id.",
+            "itemtype": "method",
+            "name": "getUser",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "- Json Object"
+                }
+            ],
+            "return": {
+                "description": "User Object"
+            },
+            "class": "GetUserRoute",
+            "module": "UserRegistration",
+            "submodule": "GetUser"
+        },
+        {
+            "file": "routes/get-user-route.js",
+            "line": 49,
+            "description": "This method is to get all user details from server by \nasynchronous ajax call .",
+            "itemtype": "method",
+            "name": "getAllUsers",
+            "return": {
+                "description": "User List"
+            },
+            "class": "GetUserRoute",
+            "module": "UserRegistration",
+            "submodule": "GetUser"
+        },
+        {
+            "file": "routes/index_route.js",
+            "line": 1,
+            "description": "Created by maninders on 27/8/15.",
+            "class": "ValidateForm",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "routes/update-user-route.js",
+            "line": 1,
+            "description": "Created by maninders on 27/8/15.",
+            "class": "ValidateForm",
+            "module": "UserRegistration"
+        },
+        {
+            "file": "util/validation-util.js",
+            "line": 10,
+            "description": "This function is to validate user registration form based on \nfirst name, last name, email and zip code.",
+            "itemtype": "method",
+            "name": "validateForm",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "- User Registration Form Object"
+                }
+            ],
+            "return": {
+                "description": "boolean - Form valid or not"
+            },
+            "class": "ValidateForm",
+            "module": "UserRegistration",
+            "submodule": "AddUser"
+        },
+        {
+            "file": "util/validation-util.js",
+            "line": 19,
+            "description": "Regular expression to validate email.",
+            "itemtype": "property",
+            "name": "emailPattern",
+            "type": "String",
+            "default": "/^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$/i",
+            "class": "ValidateForm",
+            "module": "UserRegistration",
+            "submodule": "AddUser"
+        },
+        {
+            "file": "util/validation-util.js",
+            "line": 26,
+            "description": "Regular expression to validate Zip code.",
+            "itemtype": "property",
+            "name": "zipPattern",
+            "type": "String",
+            "default": "/(^\\d{6}$)|(^\\d{3}-\\d{3}$)/",
+            "class": "ValidateForm",
+            "module": "UserRegistration",
+            "submodule": "AddUser"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type",
+            "line": " controllers/index-controller.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by maninders on 27/8/15.",
+            "line": " routes/index_route.js:1"
+        },
+        {
+            "message": "Missing item type\nCreated by maninders on 27/8/15.",
+            "line": " routes/update-user-route.js:1"
+        }
+    ]
+}

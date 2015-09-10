@@ -1,13 +1,27 @@
 /**
- * Created by maninders on 27/8/15.
+ * This controller class have functionality to validate user registration form 
+ * and register new user
+ * @author maninders
+ * @author bhuvnshwars
+ * @class  AddUserController
+ * @module UserRegistration
+ * @submodule AddUser
  */
 
 UserRegistrationApp.AddUserController = Ember.Controller.extend({
     isFormValid : true,
+    /**
+	 * This method to observe changes in attributes of User and after change, hide alert message.
+	 * @method validAddUserForm
+	 */
     validAddUserForm : function(){
         this.set("errors","");
     }.observes('firstName','middleName','lastName','email','city','address','state','zip','country'),
     actions : {
+    	/**
+    	 * This method to register new user after validating user registration form.
+    	 * @method addNewUser
+    	 */
         addNewUser : function(){
 
             if(!UserRegistrationApp.validateForm(this))

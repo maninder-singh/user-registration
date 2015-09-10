@@ -8,7 +8,10 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * Created by maninders on 25/8/15.
+ * <h1> PropertyUtil.class </h1>
+ * The PropertyUtil class is responsible to load properties or configuration file to memory.
+ * 
+ * @author maninders
  */
 public class PropertyUtil {
 
@@ -16,6 +19,10 @@ public class PropertyUtil {
 
     private static Properties properties = loadPropertiesFile();
 
+    /**
+     * This method is responsible to load properties file to memory.
+     * @return java.util.Properties
+     */
     private  static Properties loadPropertiesFile() {
 
         Properties properties = new Properties();
@@ -45,6 +52,10 @@ public class PropertyUtil {
             return properties;
     }
 
+    /**
+     * This method is to return Properties Object, which represents set of key value pair objects in memory
+     * @return java.util.Properties
+     */
     public static Properties getProperties(){
         return properties;
     }

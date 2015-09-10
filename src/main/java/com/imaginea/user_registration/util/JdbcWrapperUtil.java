@@ -8,7 +8,10 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 /**
- * Created by maninders on 25/8/15.
+ * <h1> JdbcWrapperUtil.class </h1>
+ * The JdbcWrapperUtil class is responsible to interact with configured DB
+ * 
+ * @author maninders
  */
 public class JdbcWrapperUtil {
 
@@ -22,6 +25,12 @@ public class JdbcWrapperUtil {
     private static Properties propertyUtil = PropertyUtil.getProperties();
     private static Connection connection;
 
+    /**
+     * This method is utility method, which is used by application to get JDBC Connection object 
+     * @return java.sql.Connection
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
 
         String url = propertyUtil.getProperty(DB_URL).toString();

@@ -15,7 +15,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by maninders on 25/8/15.
+ * <h1> UserRegistrationController.class </h1>
+ * The UserRegistrationController class is the entry point for Jersey Framework and 
+ * rest api will be processed here according to path specified.
+ * 
+ * @author maninders
  */
 
 @Path("/registration")
@@ -24,6 +28,11 @@ public class UserRegistrationController {
     private UserRegistrationService userRegistrationService = new UserRegistrationService();
     static final Logger log = Logger.getLogger(UserRegistrationController.class);
 
+    
+    /**
+     * This rest api is to get list of all users 
+     * @return userMap
+     */
     @GET
     @Path("/get-all-users")
     @Produces(MediaType.APPLICATION_JSON)
@@ -40,6 +49,11 @@ public class UserRegistrationController {
         return getResultMap(UIMessageConstant.GET_ALL_USER_MSG,Constant.FAIL,"");
     }
 
+    /**
+     * This rest api is to get details about user
+     * @param userId
+     * @return userMap
+     */
     @GET
     @Path("/get-user/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -56,6 +70,11 @@ public class UserRegistrationController {
         return getResultMap(UIMessageConstant.GET_ALL_USER_MSG,Constant.FAIL,"");
     }
 
+    /**
+     * This rest api is to insert user details to DB
+     * @param user
+     * @return userMap
+     */
     @POST
     @Path("/add-user")
     @Produces(MediaType.APPLICATION_JSON)
@@ -73,6 +92,11 @@ public class UserRegistrationController {
                 ,Constant.FAIL,"");
     }
 
+    /**
+     * This rest api is to update user details to DB
+     * @param user
+     * @return userMap
+     */
     @POST
     @Path("/update-user")
     @Produces(MediaType.APPLICATION_JSON)
@@ -90,6 +114,11 @@ public class UserRegistrationController {
                 ,Constant.FAIL,"");
     }
 
+    /**
+     * This rest api is to delete user from DB
+     * @param userId
+     * @return userMap
+     */
     @DELETE
     @Path("/delete-user/{userId}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -113,7 +142,7 @@ public class UserRegistrationController {
     }
 
     /**
-     * Test method to check service is working or not
+     * This method to check service is working or not
      */
     @GET
     @Path("/{param}")
